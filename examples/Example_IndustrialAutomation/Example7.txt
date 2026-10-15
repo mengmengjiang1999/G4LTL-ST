@@ -1,0 +1,18 @@
+## Enabling the indicator to be ON after a 3 sec delay when switch pressed and OFF immediately by the switch .
+
+
+
+ALWAYS(!x1-> !y1)
+
+ALWAYS((!x1 && NEXT x1) -> NEXT (t.start && (!y1 UNTIL t.expire)))
+
+ALWAYS(NEXT (t.start) -> (!x1 && NEXT x1) )
+
+ALWAYS((t.expire && x1) -> y1)
+
+
+
+## When we ensure timer will only start under rising edge, then timer will not be triggered arbitrarily.
+INPUT x1
+OUTPUT y1
+TIMER t(3s)

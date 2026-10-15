@@ -1,0 +1,10 @@
+## Simple arbitor for one client
+
+[] (req1 -> <> (grant1))
+
+
+INPUT req1
+OUTPUT grant1
+
+
+

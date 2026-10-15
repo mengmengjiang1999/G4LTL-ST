@@ -1,0 +1,11 @@
+## LTL formula file:
+
+ASSUME [](cancel -> (X(go) || X(X(go))))
+[](req -> (X( grant || cancel) || X(X(  grant || cancel)) || X(X(X(grant || cancel))) ))
+[]( grant  -> X(!(grant)))                 
+[]( cancel -> X(!(grant) U go))       
+  
+
+INPUT req, cancel, go
+OUTPUT grant
+  

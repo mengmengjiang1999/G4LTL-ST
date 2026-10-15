@@ -1,0 +1,4 @@
+!(([]((req)-><>(ack))) && ([]((go)-><>(grant))))
+
+INPUT req, go
+OUTPUT grant, ack

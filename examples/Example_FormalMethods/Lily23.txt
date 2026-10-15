@@ -1,0 +1,7 @@
+## LTL formula file:
+## CoBuechi-Safety (unroll 4)
+  ([]((e && X(s)) -> X(e)) && [](<>(!e))) -> [](X(!e && X(!s)))
+  
+
+INPUT e
+OUTPUT s

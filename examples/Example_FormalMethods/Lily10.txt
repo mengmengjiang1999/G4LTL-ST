@@ -1,0 +1,4 @@
+([](<>(req)) || <>(cancel))->([](<>(grant)) || [] (ack))
+ 
+INPUT req, cancel
+OUTPUT grant, ack

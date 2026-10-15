@@ -1,0 +1,14 @@
+## Simple arbitor for 3 clients
+
+[] (req1 -> <> grant1)
+[] (req2 -> <> grant2)
+[] (req3 -> <> grant3)
+[] !(grant1 && grant2)
+[] !(grant2 && grant3)
+[] !(grant1 && grant3)
+
+INPUT req1, req2, req3
+OUTPUT grant1, grant2, grant3
+
+
+

@@ -1,0 +1,39 @@
+## Automatically infusing the container with liquids A and B in order when START is pressed. When it
+## reaches the set level, mix the two liquids evenly then open the valve to let out the mixture.
+
+## Compositional synthesis of unroll 4 is enough
+## However, to create simpler specification, one should perform decomposition. See Example10_p1, Example10_p2 for the decomposed I/O.
+
+## Modified specification by considering that x10 is emergency stop, where one needs to add  "|| x10" to the UNTIL condition.
+## Notice that the disjunction is not really specified in the specification.
+
+## When emergency button is pressed, stop all processes
+ALWAYS(x10 -> (!y0 && !y1 && !y2 && !y3))
+
+!y0
+ALWAYS ((!x0 && NEXT !x0) -> NEXT !y0)
+ALWAYS ((!x0 && NEXT x0) -> NEXT (y0 UNTIL (x1 || x10 || !x0 )))
+ALWAYS (x1 -> !y0)
+ALWAYS (x1 -> (y1 UNTIL (x2 || x10)))
+ALWAYS (x2 -> !y1)
+
+## Here one potential problem is that t0.expire can simultaneously happen (as it is not being reset until t0.start), 
+## so the line below will need to be updated, with consideration of x10 as blocker
+## ALWAYS ((!x2 && NEXT x2) -> NEXT (t0.start  (y2 UNTIL (t0.expire || x10) )))
+ALWAYS ((!x2 && NEXT x2 && NEXT !x10) -> NEXT (t0.start && y2 && NEXT (y2 UNTIL (t0.expire || x10) )))
+
+## When 60 seconds expire (!t0.expire && NEXT t0.expire), start opening the valve for 120 seconds to flow all water out
+## ALWAYS ((!t0.expire && NEXT t0.expire) -> NEXT (t1.start && (y3 UNTIL ( t1.expire || x10) )))
+ALWAYS ((!t0.expire && NEXT t0.expire && NEXT !x10) -> NEXT (t1.start && y3 && NEXT (y3 UNTIL ( t1.expire || x10) )))
+
+
+## Ensure that at most one output can be true 
+
+## G4LTL-ST automatically suggests the following assumption (based on synthesizing part 1)
+ASSUME [] ( <> (x10))
+
+
+
+INPUT x0, x1, x2, x3, x10
+OUTPUT y0, y1, y2, y3
+TIMER t0(60s), t1(120s)

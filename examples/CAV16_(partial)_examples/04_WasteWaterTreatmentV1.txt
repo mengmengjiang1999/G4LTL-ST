@@ -1,0 +1,43 @@
+## =====REALIZABLE=====
+## Control over a Sewage Treatment (Kläranlage) with two tanks Variation 1
+## Example taken from Ex7.1.8 in book IEC 61131-3 mit CoDeSys V3 by Jochen Petry
+
+
+## For sensors, when value is 0, it means that no water is sensed
+## For actuators, when value is 0, it means to close the valve
+
+
+## NOTICE: 
+## 1. THIS IS BOOLEANIZED, THEREFORE TIMER IS NOT USED
+## 2. HERE THE WEAK_UNTIL (a W b) IS EXTENDED WITH ANOTHER DISJUNCTION OVER ENVIRONMENT VAR (![] !b), BUT IT DOES NOT INFLUENCE REALIZABILITY 
+
+## Here the Until condition is additionally added with a stopper of b4
+[] ((b1 && !b4) -> ((v1 U (!b2 || b4)) || ([] !(!b2 || b4) -> [] v1)))
+
+## 2, 3 needs a merge (add additional 5 seconds)
+## [] (((b3 && X !b3) || (b2 && X !b2)) -> X ((v2 U (!t1expire && X t1expire)) || ([] !(!t1expire && X t1expire) -> [] v2)) )
+## Use the untimed version (the new tool will support that)
+## [] (((!b2 || !b3)) -> ((v2 U (!t1expire && X t1expire)) || ([] !(!t1expire && X t1expire) -> [] v2)) )
+## Remove parathesis
+[] ((!b2 || !b3) -> ((v2 U (!t1expire && X t1expire)) || ([] !(!t1expire && X t1expire) -> [] v2)) )
+
+
+## [] ((b2 && X !b2) -> X !v1)
+## Use the untimed version (the new tool will support that)
+[] (!b2 ->  !v1)
+## 
+[] ((b2 && X !b2) <-> X t1start)
+## Hidden specification - keep v2 off
+[] ((!t1expire && X t1expire) -> X ((!v2 U (!b2 || !b3))  ||  ([] !(!b2 || !b3) -> [] !v2))   )
+[] ((!b5 && b2 && b3) -> v1)
+
+## The below spec is too weak
+## [] (b4 -> !v1)
+## The below is problematic, as b1 can still not arriving, thereby locking !v1
+## [] (b4 -> ((!v1 U (b1 && !b4))  || ([] !(b1 && !b4) -> [] !v1))  )
+[] (b4 -> ((!v1 U ((b1 && !b4) || (!b5 && b2 && b3)))  || ([] !((b1 && !b4) || (!b5 && b2 && b3)) -> [] !v1))  )
+
+
+INPUT b1, b2, b3, b4, b5, t1expire
+OUTPUT v1, v2, t1start
+

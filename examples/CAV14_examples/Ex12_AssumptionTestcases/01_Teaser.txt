@@ -1,0 +1,7 @@
+ALWAYS (r1 -> g1)
+ALWAYS (r2 -> g2)
+ALWAYS !(g1 && g2)
+
+INPUT r1, r2
+OUTPUT g1, g2
+TIMER 

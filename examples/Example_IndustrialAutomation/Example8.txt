@@ -1,0 +1,38 @@
+## Enabling the indicator to be ON after a 5 sec delay and OFF after a 3 sec delay by the switch.
+## The specifictaion sounds simple in first hand, but the key problem lies in the case where ON and OFF
+## are frequently happening within the delayed period, which  makes the specification very very tricky
+## In fact, one can then reason that if that is the case, one needs special resolution to handle such scenarios.
+
+## Here we created assumptions to state that the system is "nicely behaved" (see below)
+## Controller can be found with compositional synthesis method (unroll 2 is sufficient)
+
+ALWAYS((!x1 && NEXT x1) -> NEXT (t0.start))
+ALWAYS(NEXT t0.start -> (!x1 && NEXT x1))
+
+ALWAYS (t0.start -> !y1 && NEXT (!y1 UNTIL t0.expire))
+ALWAYS( (t0.expire && x1) && NEXT ((t0.expire && x1)) -> NEXT y1)
+
+## Simple shutdown condition
+## ALWAYS(!x1 -> !y1)
+
+## Delayed shutdown
+ALWAYS((x1 && NEXT !x1) -> NEXT (t1.start))
+ALWAYS(NEXT t1.start -> (x1 && NEXT !x1))
+
+## In the synthesized code, it is so smart to continuously start the timer
+!t1.start
+## The below line enables a delayed shutdown (y1 should be on), which causes problem
+ALWAYS (t1.start -> (y1 && NEXT (y1 UNTIL t1.expire)))
+
+## Here the challenge is to specify all other cases, we want to have negation when possible 
+## (as we specify cases which needs to be high). 
+ALWAYS( (t1.expire && !x1) && NEXT ((t1.expire && !x1)) -> NEXT !y1)
+
+## Assume that system behavior is "nice", by assuming that one does not switch during the delayed time
+ASSUME ALWAYS(t0.start -> NEXT (x1 UNTIL t0.expire))
+ASSUME ALWAYS(t1.start -> NEXT (!x1 UNTIL t1.expire))
+
+
+INPUT x1
+OUTPUT y1
+TIMER t0(5s), t1(3s)

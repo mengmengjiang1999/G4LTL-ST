@@ -1,0 +1,5 @@
+[](<>(ets)) -> ([](hl -> (hl U ets)) && [](fl -> (fl U ets)) && [](!hl || !fl) && [](ec -> <>(fl)) && [](<>(hl)))
+    
+INPUT ets, ec
+OUTPUT fl, hl
+  

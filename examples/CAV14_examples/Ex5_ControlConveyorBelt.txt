@@ -1,0 +1,28 @@
+## A simple example demonstrating how to use synthesis to control a conveyor belt
+## together with safety features (emergency stop)
+
+## When an object arrives, drive the belt until the object leaves or the emerency button is pressed.
+ALWAYS (obj_in -> (drive UNTIL (obj_out || emer_req)))
+
+## When emergency button is pressed, don't drive, raise the redlight
+ALWAYS (emer_req -> (!drive && redlight))
+ALWAYS (emer_req -> (t1.start && sound && NEXT (sound UNTIL t1.expire)))
+
+## When emergency button is not pressed, don't raise the redlight
+ALWAYS (!emer_req -> !redlight)
+
+## When an object leaves, don't drive the belt until another arrives, or it is possible that nothing will ever arrive.
+ALWAYS (obj_out -> ((!drive UNTIL obj_in) || (NEXT ALWAYS !obj_in)))
+
+## ASSUMPTION: When the emergency button is pressed, then it can't be reversed
+ASSUME ALWAYS (emer_req -> NEXT ALWAYS emer_req)
+
+## ASSUMPTION: When the emergency button is pressed, then nothing comes
+ASSUME ALWAYS (emer_req -> !obj_in)
+
+## ASSUMPTION: When an object arrives, before the object is out, nothing will come in again.
+ASSUME ALWAYS (obj_in -> NEXT (!obj_in UNTIL obj_out) )
+
+INPUT obj_in, obj_out, emer_req
+OUTPUT drive, redlight, sound
+TIMER t1(3s)

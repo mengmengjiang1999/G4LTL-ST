@@ -1,0 +1,27 @@
+## =====REALIZABLE=====
+## Driving a hydraulic ramp
+## Example taken from Ex7.1.3 in book IEC 61131-3 mit CoDeSys V3 by Jochen Petry
+
+## NOTICE: 
+## 1. THIS IS BOOLEANIZED, THEREFORE TIMER IS NOT USED
+## 2. HERE THE WEAK_UNTIL (a W b) IS EXTENDED WITH ANOTHER DISJUNCTION OVER ENVIRONMENT VAR (![] !b), BUT IT DOES NOT INFLUENCE REALIZABILITY 
+
+## For the Ptolemy code generation, we need to write output conjunction into two files. 
+[] ((s2 && !s1 && !s3) -> ((k2 U (s5 || s1 || s3 || (s1 && s2))) || ([] !(s5 || s1 || s3 || (s1 && s2)) -> [] k2)))
+[] ((s1 && !s2 && !s3) -> ((k1 U (s4 || s2 || s3 || (s1 && s2))) || ([] !(s4 || s2 || s3 || (s1 && s2)) -> [] k1)))
+[] (!(k1 && k2))
+[] (s5 -> !k2)
+[] (s4 -> !k1)
+## [] ((s1 && s2) -> (!k1 && !k2))
+## [] (s3 -> (!k1 && !k2))
+[] ((s1 && s2) -> !k1 )
+[] ((s1 && s2) -> !k2 )
+[] (s3 -> !k1)
+[] (s3 -> !k2 )
+## ((!k1 && !k2) U (s1 || s2)) || ([] !(s1 || s2) -> [] (!k1 && !k2))
+((!k1 ) U (s1 || s2)) || ([] !(s1 || s2) -> [] (!k1))
+((!k2) U (s1 || s2)) || ([] !(s1 || s2) -> [] (!k2))
+
+INPUT s1, s2, s3, s4, s5
+OUTPUT k1, k2
+

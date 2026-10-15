@@ -1,0 +1,16 @@
+## LTL formula file:
+## Unroll 5
+    ASSUME !godown && !goup && !ws
+    ASSUME [](!godown || !goup)
+    ASSUME [](<>(!ws))
+    ASSUME []((!ws && ss) -> X(!ws))
+    ASSUME [](ws -> (X(!ws) || X(X(!ws)) || X(X(X(!ws))) || X(X(X(X(!ws))))))
+    
+    [](goup -> <>(!ss))
+    [](godown  -> <>(ss))
+    
+    [](!(ws && X(ss)))
+    
+    
+INPUT godown, goup, ws
+OUTPUT ss

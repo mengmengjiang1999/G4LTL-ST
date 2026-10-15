@@ -1,0 +1,7 @@
+## Switching on/off the Lamp whether they are at the bottom or the top of the staircase.
+ALWAYS (((x0 && x1) || (!x0 && !x1)) -> y0)
+ALWAYS (!((x0 && x1) || (!x0 && !x1)) -> !y0)
+
+INPUT x0, x1
+OUTPUT y0
+TIMER 

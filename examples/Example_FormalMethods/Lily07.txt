@@ -1,0 +1,6 @@
+## LTL formula file:
+([](cancel -> (X(go) || X(X(go))))) -> (([](cancel -> X((!(grant)) U go)))&&(([](grant -> X(!(grant))))&&([](req -> ((grant || cancel) || X(grant || cancel) || X(X(grant || cancel)) || X(X(X(grant || cancel))))))))
+  
+
+INPUT req, cancel, go
+OUTPUT grant

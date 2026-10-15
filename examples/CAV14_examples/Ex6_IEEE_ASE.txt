@@ -1,0 +1,16 @@
+## Example from "Formal Specification and Verification of Industrial Logic Components" IEE Trans. on Auto. Sc. and Engg. Vol. 7, No. 3, 2010
+
+## Operation Specification
+ASSUME ALWAYS (!(movefwd && movebwd))
+ALWAYS (ALWAYS (movefwd -> EVENTUALLY (infwdpos || alarm)))
+ALWAYS (ALWAYS (movebwd -> EVENTUALLY (inbwdpos || alarm)))
+
+## Exception Specification
+ALWAYS (ALWAYS emergencystop -> !(closevalve || openvalve))
+
+## Invariants
+ALWAYS (!(closevalve && openvalve))
+
+
+INPUT  movefwd, movebwd, infwdpos, inbwdpos, emergencystop
+OUTPUT closevalve, openvalve, alarm

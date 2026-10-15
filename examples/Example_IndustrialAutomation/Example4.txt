@@ -1,0 +1,21 @@
+## Providing lubricant for the gear box (x0, x1) before the lathe spindle starts to run (x2, x3) ,
+## which aims to ensure that the oil pump motor starts first and the main motor starts subsequently
+ALWAYS(x0 -> y0)
+ALWAYS(x1 && y0 -> y1)
+ALWAYS(!y0 -> !y1)
+ALWAYS(x2 -> !y0)
+ALWAYS(x3 -> !y1)
+
+## The below are assumptions that are manually designed
+## In the CODESYS project, x0 and x2 are provided by the same signal, with negation feed into the function block
+ASSUME [] (x0 -> !x2)
+ASSUME [] (x2 -> !x0)
+ASSUME [] (x1 -> !x3)
+ASSUME [] (x3 -> !x1)
+
+## The synthesized controller, when lubricant supply is turned off, 
+## it also automatically switches off the spindle simultaneously. 
+
+INPUT x0, x1, x2, x3
+OUTPUT y0, y1
+TIMER 

@@ -1,0 +1,18 @@
+## LTL formula file: (no solution) - Please use DFS to search
+  
+  []( req -> (X(grant) && X(X(grant)) && X(X(X(grant))) ))
+  
+  ## P2 always(grant -> next(!grant))
+  []( grant -> X(!grant))
+  
+  ## P3 always(cancel -> next((!grant) until! go))
+  []( cancel -> X(!grant U go))
+  
+
+
+INPUT req, cancel, go
+OUTPUT grant
+
+
+  
+  

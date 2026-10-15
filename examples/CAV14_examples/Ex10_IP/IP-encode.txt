@@ -1,0 +1,400 @@
+﻿car moving left [(-1.0)omega+ <= -0.2 or (-1.0)theta <= -0.4]
+010011001
+car moving left [1.0omega+ < 0.1, (-1.0)omega+ <= -0.05 or (-1.0)theta <= -0.4]
+001101001
+car moving left [(-1.0)omega+ <= -0.2 or 1.0theta < -0.2, (-1.0)theta <= 0.3]
+010010010
+car moving left [1.0omega+ < 0.1, (-1.0)omega+ <= -0.05 or 1.0theta < -0.2, (-1.0)theta <= 0.3]
+001100010
+car moving left [(-1.0)theta <= -0.4 or 1.0omega+ < 0.15, (-1.0)omega+ <= -0.1]
+001111001
+car moving left [(-1.0)omega+ <= -0.2 or 1.0theta < 0.3, (-1.0)theta <= -0.2]
+010010111
+car moving left [1.0omega+ < 0.1, (-1.0)omega+ <= -0.05 or 1.0theta < 0.3, (-1.0)theta <= -0.2]
+001100111
+car moving left [1.0omega+ < 0.15, (-1.0)omega+ <= -0.1 or 1.0theta < -0.2, (-1.0)theta <= 0.3]
+001110010
+car moving left [(-1.0)omega+ <= -0.2 or 1.0theta < -0.4]
+010010000
+car moving left [(-1.0)theta <= -0.4 or 1.0omega+ < -0.05, (-1.0)omega+ <= 0.1]
+000111001
+car moving left [1.0omega+ < 0.1, (-1.0)omega+ <= -0.05 or 1.0theta < -0.4]
+001100000
+car moving left [1.0omega+ < 0.15, (-1.0)omega+ <= -0.1 or 1.0theta < 0.3, (-1.0)theta <= -0.2]
+001110111
+car moving left [(-1.0)omega+ <= -0.2 or 1.0theta < 0.4, (-1.0)theta <= -0.3]
+010011000
+car moving left [(-1.0)omega+ <= -0.2 or 1.0theta < 0.1, (-1.0)theta <= 0.0]
+010010101
+car moving left [1.0omega+ < 0.1, (-1.0)omega+ <= -0.05 or 1.0theta < 0.4, (-1.0)theta <= -0.3]
+001101000
+car moving left [(-1.0)omega+ <= -0.2 or 1.0theta < 0.0, (-1.0)theta <= 0.1]
+010010100
+car moving left [1.0omega+ < 0.1, (-1.0)omega+ <= -0.05 or 1.0theta < 0.1, (-1.0)theta <= 0.0]
+001100101
+car moving left [1.0theta < -0.2, (-1.0)theta <= 0.3 or 1.0omega+ < -0.05, (-1.0)omega+ <= 0.1]
+000110010
+car moving left [1.0theta < 0.3, (-1.0)theta <= -0.2 or 1.0omega+ < -0.05, (-1.0)omega+ <= 0.1]
+000110111
+car moving left [1.0omega+ < 0.15, (-1.0)omega+ <= -0.1 or 1.0theta < -0.4]
+001110000
+car moving left [1.0omega+ < 0.15, (-1.0)omega+ <= -0.1 or 1.0theta < 0.4, (-1.0)theta <= -0.3]
+001111000
+car moving left [1.0omega+ < 0.1, (-1.0)omega+ <= -0.05 or 1.0theta < 0.0, (-1.0)theta <= 0.1]
+001100100
+car moving left [1.0omega+ < 0.15, (-1.0)omega+ <= -0.1 or 1.0theta < 0.1, (-1.0)theta <= 0.0]
+001110101
+car moving left [(-1.0)omega+ <= -0.2 or 1.0theta < -0.3, (-1.0)theta <= 0.4]
+010010001
+car moving left [(-1.0)theta <= -0.4 or 1.0omega+ < -0.1, (-1.0)omega+ <= 0.15]
+000101001
+car moving left [1.0omega+ < -0.05, (-1.0)omega+ <= 0.1 or 1.0theta < -0.4]
+000110000
+car moving left [1.0omega+ < 0.15, (-1.0)omega+ <= -0.1 or 1.0theta < 0.0, (-1.0)theta <= 0.1]
+001110100
+car moving left [1.0omega+ < 0.1, (-1.0)omega+ <= -0.05 or 1.0theta < -0.3, (-1.0)theta <= 0.4]
+001100001
+car moving left [1.0omega+ < -0.05, (-1.0)omega+ <= 0.1 or 1.0theta < 0.4, (-1.0)theta <= -0.3]
+000111000
+car moving left [(-1.0)omega+ <= -0.2 or 1.0theta < -0.1, (-1.0)theta <= 0.2]
+010010011
+car moving left [1.0theta < -0.2, (-1.0)theta <= 0.3 or 1.0omega+ < -0.1, (-1.0)omega+ <= 0.15]
+000100010
+car moving left [1.0omega+ < -0.05, (-1.0)omega+ <= 0.1 or 1.0theta < 0.1, (-1.0)theta <= 0.0]
+000110101
+car moving left [1.0omega+ < 0.15, (-1.0)omega+ <= -0.1 or 1.0theta < -0.3, (-1.0)theta <= 0.4]
+001110001
+car moving left [1.0theta < -0.2, (-1.0)theta <= 0.3 or 1.0omega+ < -0.15, (-1.0)omega+ <= 0.2]
+000010010
+car moving left [(-1.0)theta <= -0.4 or 1.0omega+ < -0.15, (-1.0)omega+ <= 0.2]
+000011001
+car moving left [1.0omega+ < 0.1, (-1.0)omega+ <= -0.05 or 1.0theta < -0.1, (-1.0)theta <= 0.2]
+001100011
+car moving left [1.0omega+ < -0.05, (-1.0)omega+ <= 0.1 or 1.0theta < 0.0, (-1.0)theta <= 0.1]
+000110100
+car moving left [1.0theta < 0.3, (-1.0)theta <= -0.2 or 1.0omega+ < -0.1, (-1.0)omega+ <= 0.15]
+000100111
+car moving left [1.0omega+ < 0.15, (-1.0)omega+ <= -0.1 or 1.0theta < -0.1, (-1.0)theta <= 0.2]
+001110011
+car moving left [(-1.0)theta <= -0.4 or 1.0omega+ < 0.2, (-1.0)omega+ <= -0.15]
+010001001
+car moving left [1.0omega+ < 0.1, (-1.0)omega+ <= -0.05 or 1.0theta < 0.2, (-1.0)theta <= -0.1]
+001100110
+car moving left [1.0theta < -0.2, (-1.0)theta <= 0.3 or 1.0omega+ < 0.2, (-1.0)omega+ <= -0.15]
+010000010
+car moving left [1.0omega+ < 0.0, (-1.0)omega+ <= 0.05 or (-1.0)theta <= -0.4]
+001001001
+car moving left [1.0theta < 0.4, (-1.0)theta <= -0.3 or 1.0omega+ < -0.1, (-1.0)omega+ <= 0.15]
+000101000
+car moving left [1.0omega+ < -0.2 or (-1.0)theta <= -0.4]
+000001001
+car moving left [1.0theta < -0.4 or 1.0omega+ < -0.1, (-1.0)omega+ <= 0.15]
+000100000
+car moving left [1.0omega+ < -0.05, (-1.0)omega+ <= 0.1 or 1.0theta < -0.3, (-1.0)theta <= 0.4]
+000110001
+car moving left [1.0theta < 0.3, (-1.0)theta <= -0.2 or 1.0omega+ < -0.15, (-1.0)omega+ <= 0.2]
+000010111
+car moving left [1.0theta < 0.4, (-1.0)theta <= -0.3 or 1.0omega+ < -0.15, (-1.0)omega+ <= 0.2]
+000011000
+car moving left [1.0omega+ < -0.2 or 1.0theta < 0.3, (-1.0)theta <= -0.2]
+000000111
+car moving left [1.0omega+ < 0.0, (-1.0)omega+ <= 0.05 or 1.0theta < -0.2, (-1.0)theta <= 0.3]
+001000010
+car moving left [(-1.0)omega+ <= -0.2 or 1.0theta < 0.2, (-1.0)theta <= -0.1]
+010010110
+car moving left [1.0omega+ < -0.05, (-1.0)omega+ <= 0.1 or 1.0theta < -0.1, (-1.0)theta <= 0.2]
+000110011
+car moving left [1.0theta < 0.2, (-1.0)theta <= -0.1 or 1.0omega+ < 0.15, (-1.0)omega+ <= -0.1]
+001110110
+car moving left [(-1.0)theta <= -0.4 or 1.0omega+ < 0.05, (-1.0)omega+ <= 0.0]
+001011001
+car moving left [1.0theta < 0.0, (-1.0)theta <= 0.1 or 1.0omega+ < -0.1, (-1.0)omega+ <= 0.15]
+000100100
+car moving left [1.0theta < 0.3, (-1.0)theta <= -0.2 or 1.0omega+ < 0.2, (-1.0)omega+ <= -0.15]
+010000111
+car moving left [1.0theta < -0.4 or 1.0omega+ < -0.15, (-1.0)omega+ <= 0.2]
+000010000
+car moving left [1.0omega+ < -0.2 or 1.0theta < -0.2, (-1.0)theta <= 0.3]
+000000010
+car moving left [1.0theta < 0.1, (-1.0)theta <= 0.0 or 1.0omega+ < -0.1, (-1.0)omega+ <= 0.15]
+000100101
+car moving left [1.0omega+ < 0.05, (-1.0)omega+ <= 0.0 or 1.0theta < -0.2, (-1.0)theta <= 0.3]
+001010010
+car moving left [1.0theta < 0.0, (-1.0)theta <= 0.1 or 1.0omega+ < -0.15, (-1.0)omega+ <= 0.2]
+000010100
+car moving left [1.0omega+ < -0.2 or 1.0theta < -0.4]
+000000000
+car moving left [1.0omega+ < -0.1, (-1.0)omega+ <= 0.15 or 1.0theta < -0.3, (-1.0)theta <= 0.4]
+000100001
+car moving left [1.0omega+ < 0.0, (-1.0)omega+ <= 0.05 or 1.0theta < 0.4, (-1.0)theta <= -0.3]
+001001000
+car moving left [1.0omega+ < -0.1, (-1.0)omega+ <= 0.15 or 1.0theta < -0.1, (-1.0)theta <= 0.2]
+000100011
+car moving left [1.0omega+ < -0.2 or 1.0theta < 0.1, (-1.0)theta <= 0.0]
+000000101
+car moving left [1.0theta < -0.3, (-1.0)theta <= 0.4 or 1.0omega+ < -0.15, (-1.0)omega+ <= 0.2]
+000010001
+car moving left [1.0theta < 0.4, (-1.0)theta <= -0.3 or 1.0omega+ < 0.2, (-1.0)omega+ <= -0.15]
+010001000
+car moving left [1.0omega+ < 0.0, (-1.0)omega+ <= 0.05 or 1.0theta < 0.3, (-1.0)theta <= -0.2]
+001000111
+car moving left [1.0theta < 0.1, (-1.0)theta <= 0.0 or 1.0omega+ < -0.15, (-1.0)omega+ <= 0.2]
+000010101
+car moving left [1.0theta < -0.4 or 1.0omega+ < 0.2, (-1.0)omega+ <= -0.15]
+010000000
+car moving left [1.0omega+ < 0.05, (-1.0)omega+ <= 0.0 or 1.0theta < 0.3, (-1.0)theta <= -0.2]
+001010111
+car moving left [1.0theta < 0.1, (-1.0)theta <= 0.0 or 1.0omega+ < 0.2, (-1.0)omega+ <= -0.15]
+010000101
+car moving left [1.0omega+ < 0.0, (-1.0)omega+ <= 0.05 or 1.0theta < 0.0, (-1.0)theta <= 0.1]
+001000100
+car moving left [1.0omega+ < -0.15, (-1.0)omega+ <= 0.2 or 1.0theta < -0.1, (-1.0)theta <= 0.2]
+000010011
+car moving left [1.0theta < 0.0, (-1.0)theta <= 0.1 or 1.0omega+ < 0.2, (-1.0)omega+ <= -0.15]
+010000100
+car moving left [1.0omega+ < 0.0, (-1.0)omega+ <= 0.05 or 1.0theta < -0.4]
+001000000
+car moving left [1.0theta < 0.2, (-1.0)theta <= -0.1 or 1.0omega+ < -0.05, (-1.0)omega+ <= 0.1]
+000110110
+car moving left [1.0omega+ < -0.2 or 1.0theta < 0.4, (-1.0)theta <= -0.3]
+000001000
+car moving left [1.0theta < 0.2, (-1.0)theta <= -0.1 or 1.0omega+ < -0.1, (-1.0)omega+ <= 0.15]
+000100110
+car moving left [1.0omega+ < 0.05, (-1.0)omega+ <= 0.0 or 1.0theta < -0.4]
+001010000
+car moving left [1.0omega+ < 0.05, (-1.0)omega+ <= 0.0 or 1.0theta < 0.0, (-1.0)theta <= 0.1]
+001010100
+car moving left [1.0omega+ < 0.0, (-1.0)omega+ <= 0.05 or 1.0theta < -0.3, (-1.0)theta <= 0.4]
+001000001
+car moving left [1.0theta < -0.3, (-1.0)theta <= 0.4 or 1.0omega+ < 0.2, (-1.0)omega+ <= -0.15]
+010000001
+car moving left [1.0omega+ < 0.05, (-1.0)omega+ <= 0.0 or 1.0theta < 0.4, (-1.0)theta <= -0.3]
+001011000
+car moving left [1.0omega+ < -0.2 or 1.0theta < 0.0, (-1.0)theta <= 0.1]
+000000100
+car moving left [1.0omega+ < 0.0, (-1.0)omega+ <= 0.05 or 1.0theta < 0.1, (-1.0)theta <= 0.0]
+001000101
+car moving left [1.0omega+ < 0.05, (-1.0)omega+ <= 0.0 or 1.0theta < -0.3, (-1.0)theta <= 0.4]
+001010001
+car moving left [1.0omega+ < 0.0, (-1.0)omega+ <= 0.05 or 1.0theta < -0.1, (-1.0)theta <= 0.2]
+001000011
+car moving left [1.0omega+ < -0.2 or 1.0theta < 0.2, (-1.0)theta <= -0.1]
+000000110
+car moving left [1.0omega+ < -0.2 or 1.0theta < -0.1, (-1.0)theta <= 0.2]
+000000011
+car moving left [1.0omega+ < -0.2 or 1.0theta < -0.3, (-1.0)theta <= 0.4]
+000000001
+car moving left [1.0theta < -0.1, (-1.0)theta <= 0.2 or 1.0omega+ < 0.2, (-1.0)omega+ <= -0.15]
+010000011
+car moving left [1.0theta < 0.2, (-1.0)theta <= -0.1 or 1.0omega+ < -0.15, (-1.0)omega+ <= 0.2]
+000010110
+car moving left [1.0omega+ < 0.05, (-1.0)omega+ <= 0.0 or 1.0theta < 0.1, (-1.0)theta <= 0.0]
+001010101
+car moving right [(-1.0)omega+ <= -0.2 or 1.0theta < -0.2, (-1.0)theta <= 0.3]
+110010010
+car moving right [1.0omega+ < 0.1, (-1.0)omega+ <= -0.05 or 1.0theta < -0.2, (-1.0)theta <= 0.3]
+101100010
+car moving right [(-1.0)omega+ <= -0.2 or (-1.0)theta <= -0.4]
+110011001
+car moving right [1.0omega+ < 0.1, (-1.0)omega+ <= -0.05 or (-1.0)theta <= -0.4]
+101101001
+car moving left [1.0theta < 0.2, (-1.0)theta <= -0.1 or 1.0omega+ < 0.2, (-1.0)omega+ <= -0.15]
+010000110
+car moving left [1.0omega+ < 0.05, (-1.0)omega+ <= 0.0 or 1.0theta < 0.2, (-1.0)theta <= -0.1]
+001010110
+car moving left [1.0omega+ < 0.0, (-1.0)omega+ <= 0.05 or 1.0theta < 0.2, (-1.0)theta <= -0.1]
+001000110
+car moving left [1.0omega+ < 0.05, (-1.0)omega+ <= 0.0 or 1.0theta < -0.1, (-1.0)theta <= 0.2]
+001010011
+car moving right [1.0omega+ < 0.1, (-1.0)omega+ <= -0.05 or 1.0theta < -0.4]
+101100000
+car moving right [1.0omega+ < 0.15, (-1.0)omega+ <= -0.1 or 1.0theta < 0.3, (-1.0)theta <= -0.2]
+101110111
+car moving right [(-1.0)omega+ <= -0.2 or 1.0theta < -0.4]
+110010000
+car moving right [(-1.0)theta <= -0.4 or 1.0omega+ < -0.05, (-1.0)omega+ <= 0.1]
+100111001
+car moving right [1.0omega+ < 0.1, (-1.0)omega+ <= -0.05 or 1.0theta < 0.3, (-1.0)theta <= -0.2]
+101100111
+car moving right [1.0omega+ < 0.15, (-1.0)omega+ <= -0.1 or 1.0theta < -0.2, (-1.0)theta <= 0.3]
+101110010
+car moving right [(-1.0)theta <= -0.4 or 1.0omega+ < 0.15, (-1.0)omega+ <= -0.1]
+101111001
+car moving right [(-1.0)omega+ <= -0.2 or 1.0theta < 0.3, (-1.0)theta <= -0.2]
+110010111
+car moving right [1.0theta < 0.3, (-1.0)theta <= -0.2 or 1.0omega+ < -0.05, (-1.0)omega+ <= 0.1]
+100110111
+car moving right [1.0omega+ < 0.15, (-1.0)omega+ <= -0.1 or 1.0theta < -0.4]
+101110000
+car moving right [1.0omega+ < 0.1, (-1.0)omega+ <= -0.05 or 1.0theta < 0.1, (-1.0)theta <= 0.0]
+101100101
+car moving right [1.0theta < -0.2, (-1.0)theta <= 0.3 or 1.0omega+ < -0.05, (-1.0)omega+ <= 0.1]
+100110010
+car moving right [(-1.0)omega+ <= -0.2 or 1.0theta < 0.0, (-1.0)theta <= 0.1]
+110010100
+car moving right [1.0omega+ < 0.1, (-1.0)omega+ <= -0.05 or 1.0theta < 0.4, (-1.0)theta <= -0.3]
+101101000
+car moving right [(-1.0)omega+ <= -0.2 or 1.0theta < 0.1, (-1.0)theta <= 0.0]
+110010101
+car moving right [(-1.0)omega+ <= -0.2 or 1.0theta < 0.4, (-1.0)theta <= -0.3]
+110011000
+car moving right [1.0omega+ < 0.15, (-1.0)omega+ <= -0.1 or 1.0theta < 0.0, (-1.0)theta <= 0.1]
+101110100
+car moving right [1.0omega+ < 0.1, (-1.0)omega+ <= -0.05 or 1.0theta < -0.3, (-1.0)theta <= 0.4]
+101100001
+car moving right [(-1.0)theta <= -0.4 or 1.0omega+ < -0.1, (-1.0)omega+ <= 0.15]
+100101001
+car moving right [1.0omega+ < -0.05, (-1.0)omega+ <= 0.1 or 1.0theta < -0.4]
+100110000
+car moving right [1.0omega+ < 0.15, (-1.0)omega+ <= -0.1 or 1.0theta < 0.1, (-1.0)theta <= 0.0]
+101110101
+car moving right [(-1.0)omega+ <= -0.2 or 1.0theta < -0.3, (-1.0)theta <= 0.4]
+110010001
+car moving right [1.0omega+ < 0.15, (-1.0)omega+ <= -0.1 or 1.0theta < 0.4, (-1.0)theta <= -0.3]
+101111000
+car moving right [1.0omega+ < 0.1, (-1.0)omega+ <= -0.05 or 1.0theta < 0.0, (-1.0)theta <= 0.1]
+101100100
+car moving right [(-1.0)theta <= -0.4 or 1.0omega+ < 0.2, (-1.0)omega+ <= -0.15]
+110001001
+car moving right [1.0omega+ < 0.15, (-1.0)omega+ <= -0.1 or 1.0theta < -0.1, (-1.0)theta <= 0.2]
+101110011
+car moving right [1.0theta < 0.3, (-1.0)theta <= -0.2 or 1.0omega+ < -0.1, (-1.0)omega+ <= 0.15]
+100100111
+car moving right [1.0omega+ < -0.05, (-1.0)omega+ <= 0.1 or 1.0theta < 0.0, (-1.0)theta <= 0.1]
+100110100
+car moving right [1.0theta < 0.4, (-1.0)theta <= -0.3 or 1.0omega+ < -0.1, (-1.0)omega+ <= 0.15]
+100101000
+car moving right [1.0omega+ < 0.0, (-1.0)omega+ <= 0.05 or (-1.0)theta <= -0.4]
+101001001
+car moving right [1.0theta < -0.2, (-1.0)theta <= 0.3 or 1.0omega+ < 0.2, (-1.0)omega+ <= -0.15]
+110000010
+car moving right [1.0omega+ < 0.1, (-1.0)omega+ <= -0.05 or 1.0theta < 0.2, (-1.0)theta <= -0.1]
+101100110
+car moving right [1.0omega+ < -0.05, (-1.0)omega+ <= 0.1 or 1.0theta < 0.4, (-1.0)theta <= -0.3]
+100111000
+car moving right [(-1.0)omega+ <= -0.2 or 1.0theta < -0.1, (-1.0)theta <= 0.2]
+110010011
+car moving right [1.0theta < -0.2, (-1.0)theta <= 0.3 or 1.0omega+ < -0.1, (-1.0)omega+ <= 0.15]
+100100010
+car moving right [1.0omega+ < -0.05, (-1.0)omega+ <= 0.1 or 1.0theta < 0.1, (-1.0)theta <= 0.0]
+100110101
+car moving right [1.0omega+ < 0.1, (-1.0)omega+ <= -0.05 or 1.0theta < -0.1, (-1.0)theta <= 0.2]
+101100011
+car moving right [(-1.0)theta <= -0.4 or 1.0omega+ < -0.15, (-1.0)omega+ <= 0.2]
+100011001
+car moving right [1.0theta < -0.2, (-1.0)theta <= 0.3 or 1.0omega+ < -0.15, (-1.0)omega+ <= 0.2]
+100010010
+car moving right [1.0omega+ < 0.15, (-1.0)omega+ <= -0.1 or 1.0theta < -0.3, (-1.0)theta <= 0.4]
+101110001
+car moving right [1.0theta < 0.0, (-1.0)theta <= 0.1 or 1.0omega+ < -0.1, (-1.0)omega+ <= 0.15]
+100100100
+car moving right [(-1.0)theta <= -0.4 or 1.0omega+ < 0.05, (-1.0)omega+ <= 0.0]
+101011001
+car moving right [1.0theta < 0.2, (-1.0)theta <= -0.1 or 1.0omega+ < 0.15, (-1.0)omega+ <= -0.1]
+101110110
+car moving right [1.0omega+ < -0.05, (-1.0)omega+ <= 0.1 or 1.0theta < -0.1, (-1.0)theta <= 0.2]
+100110011
+car moving right [1.0theta < 0.1, (-1.0)theta <= 0.0 or 1.0omega+ < -0.1, (-1.0)omega+ <= 0.15]
+100100101
+car moving right [1.0omega+ < -0.2 or 1.0theta < -0.2, (-1.0)theta <= 0.3]
+100000010
+car moving right [1.0theta < -0.4 or 1.0omega+ < -0.15, (-1.0)omega+ <= 0.2]
+100010000
+car moving right [1.0theta < 0.3, (-1.0)theta <= -0.2 or 1.0omega+ < 0.2, (-1.0)omega+ <= -0.15]
+110000111
+car moving right [1.0omega+ < -0.05, (-1.0)omega+ <= 0.1 or 1.0theta < -0.3, (-1.0)theta <= 0.4]
+100110001
+car moving right [1.0theta < 0.3, (-1.0)theta <= -0.2 or 1.0omega+ < -0.15, (-1.0)omega+ <= 0.2]
+100010111
+car moving right [1.0omega+ < -0.2 or (-1.0)theta <= -0.4]
+100001001
+car moving right [1.0theta < -0.4 or 1.0omega+ < -0.1, (-1.0)omega+ <= 0.15]
+100100000
+car moving right [(-1.0)omega+ <= -0.2 or 1.0theta < 0.2, (-1.0)theta <= -0.1]
+110010110
+car moving right [1.0omega+ < 0.0, (-1.0)omega+ <= 0.05 or 1.0theta < -0.2, (-1.0)theta <= 0.3]
+101000010
+car moving right [1.0omega+ < -0.2 or 1.0theta < 0.3, (-1.0)theta <= -0.2]
+100000111
+car moving right [1.0theta < 0.4, (-1.0)theta <= -0.3 or 1.0omega+ < -0.15, (-1.0)omega+ <= 0.2]
+100011000
+car moving right [1.0theta < -0.3, (-1.0)theta <= 0.4 or 1.0omega+ < -0.15, (-1.0)omega+ <= 0.2]
+100010001
+car moving right [1.0omega+ < -0.2 or 1.0theta < 0.1, (-1.0)theta <= 0.0]
+100000101
+car moving right [1.0omega+ < -0.1, (-1.0)omega+ <= 0.15 or 1.0theta < -0.1, (-1.0)theta <= 0.2]
+100100011
+car moving right [1.0omega+ < 0.0, (-1.0)omega+ <= 0.05 or 1.0theta < 0.4, (-1.0)theta <= -0.3]
+101001000
+car moving right [1.0omega+ < -0.2 or 1.0theta < 0.4, (-1.0)theta <= -0.3]
+100001000
+car moving right [1.0theta < 0.2, (-1.0)theta <= -0.1 or 1.0omega+ < -0.05, (-1.0)omega+ <= 0.1]
+100110110
+car moving right [1.0omega+ < 0.0, (-1.0)omega+ <= 0.05 or 1.0theta < -0.4]
+101000000
+car moving right [1.0theta < 0.0, (-1.0)theta <= 0.1 or 1.0omega+ < 0.2, (-1.0)omega+ <= -0.15]
+110000100
+car moving right [1.0omega+ < 0.05, (-1.0)omega+ <= 0.0 or 1.0theta < -0.2, (-1.0)theta <= 0.3]
+101010010
+car moving right [1.0theta < 0.0, (-1.0)theta <= 0.1 or 1.0omega+ < -0.15, (-1.0)omega+ <= 0.2]
+100010100
+car moving right [1.0omega+ < -0.2 or 1.0theta < -0.4]
+100000000
+car moving right [1.0omega+ < -0.1, (-1.0)omega+ <= 0.15 or 1.0theta < -0.3, (-1.0)theta <= 0.4]
+100100001
+car moving right [1.0theta < -0.4 or 1.0omega+ < 0.2, (-1.0)omega+ <= -0.15]
+110000000
+car moving right [1.0theta < 0.1, (-1.0)theta <= 0.0 or 1.0omega+ < -0.15, (-1.0)omega+ <= 0.2]
+100010101
+car moving right [1.0omega+ < 0.0, (-1.0)omega+ <= 0.05 or 1.0theta < 0.3, (-1.0)theta <= -0.2]
+101000111
+car moving right [1.0theta < 0.4, (-1.0)theta <= -0.3 or 1.0omega+ < 0.2, (-1.0)omega+ <= -0.15]
+110001000
+car moving right [1.0omega+ < 0.0, (-1.0)omega+ <= 0.05 or 1.0theta < -0.3, (-1.0)theta <= 0.4]
+101000001
+car moving right [1.0omega+ < 0.05, (-1.0)omega+ <= 0.0 or 1.0theta < 0.0, (-1.0)theta <= 0.1]
+101010100
+car moving right [1.0omega+ < 0.05, (-1.0)omega+ <= 0.0 or 1.0theta < -0.4]
+101010000
+car moving right [1.0theta < 0.2, (-1.0)theta <= -0.1 or 1.0omega+ < -0.1, (-1.0)omega+ <= 0.15]
+100100110
+car moving right [1.0omega+ < 0.05, (-1.0)omega+ <= 0.0 or 1.0theta < 0.1, (-1.0)theta <= 0.0]
+101010101
+car moving right [1.0theta < 0.2, (-1.0)theta <= -0.1 or 1.0omega+ < -0.15, (-1.0)omega+ <= 0.2]
+100010110
+car moving right [1.0theta < -0.1, (-1.0)theta <= 0.2 or 1.0omega+ < 0.2, (-1.0)omega+ <= -0.15]
+110000011
+car moving right [1.0omega+ < -0.2 or 1.0theta < -0.3, (-1.0)theta <= 0.4]
+100000001
+car moving right [1.0omega+ < 0.0, (-1.0)omega+ <= 0.05 or 1.0theta < 0.0, (-1.0)theta <= 0.1]
+101000100
+car moving right [1.0omega+ < -0.15, (-1.0)omega+ <= 0.2 or 1.0theta < -0.1, (-1.0)theta <= 0.2]
+100010011
+car moving right [1.0omega+ < 0.05, (-1.0)omega+ <= 0.0 or 1.0theta < 0.3, (-1.0)theta <= -0.2]
+101010111
+car moving right [1.0theta < 0.1, (-1.0)theta <= 0.0 or 1.0omega+ < 0.2, (-1.0)omega+ <= -0.15]
+110000101
+car moving right [1.0omega+ < 0.0, (-1.0)omega+ <= 0.05 or 1.0theta < 0.1, (-1.0)theta <= 0.0]
+101000101
+car moving right [1.0omega+ < -0.2 or 1.0theta < 0.0, (-1.0)theta <= 0.1]
+100000100
+car moving right [1.0omega+ < 0.05, (-1.0)omega+ <= 0.0 or 1.0theta < 0.4, (-1.0)theta <= -0.3]
+101011000
+car moving right [1.0theta < -0.3, (-1.0)theta <= 0.4 or 1.0omega+ < 0.2, (-1.0)omega+ <= -0.15]
+110000001
+car moving right [1.0omega+ < 0.05, (-1.0)omega+ <= 0.0 or 1.0theta < -0.1, (-1.0)theta <= 0.2]
+101010011
+car moving right [1.0omega+ < 0.0, (-1.0)omega+ <= 0.05 or 1.0theta < 0.2, (-1.0)theta <= -0.1]
+101000110
+car moving right [1.0omega+ < 0.05, (-1.0)omega+ <= 0.0 or 1.0theta < 0.2, (-1.0)theta <= -0.1]
+101010110
+car moving right [1.0theta < 0.2, (-1.0)theta <= -0.1 or 1.0omega+ < 0.2, (-1.0)omega+ <= -0.15]
+110000110
+car moving right [1.0omega+ < 0.05, (-1.0)omega+ <= 0.0 or 1.0theta < -0.3, (-1.0)theta <= 0.4]
+101010001
+car moving right [1.0omega+ < 0.0, (-1.0)omega+ <= 0.05 or 1.0theta < -0.1, (-1.0)theta <= 0.2]
+101000011
+car moving right [1.0omega+ < -0.2 or 1.0theta < 0.2, (-1.0)theta <= -0.1]
+100000110
+car moving right [1.0omega+ < -0.2 or 1.0theta < -0.1, (-1.0)theta <= 0.2]
+100000011

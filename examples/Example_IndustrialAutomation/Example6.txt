@@ -1,0 +1,23 @@
+## Enabling the indicator to be ON immediately when switch pressed and OFF after a 5 sec delay by the switch.
+
+
+ALWAYS(x1-> y1)
+ALWAYS((x1 && NEXT !x1) -> NEXT (t.start))
+
+ALWAYS(NEXT t.start -> (x1 && NEXT !x1))
+
+
+
+## In the synthesized code, it is so smart to continuously start the timer
+!t.start
+
+
+ALWAYS (t.start -> y1 && NEXT (y1 UNTIL t.expire))
+
+ALWAYS( (t.expire && !x1) && NEXT ((t.expire && !x1)) -> NEXT !y1)
+
+
+
+INPUT x1
+OUTPUT y1
+TIMER t(5s)

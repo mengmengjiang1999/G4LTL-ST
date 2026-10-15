@@ -1,0 +1,16 @@
+## LTL formula file:
+## CoBuechi+Safety: (Unroll 4)    
+ASSUME !r2b_ack0
+      ASSUME [](!b2r_req0 -> X(!r2b_ack0))	
+      ASSUME [](b2r_req0 -> X(<>(r2b_ack0)))
+      
+      b2r_req0
+      [](r2b_ack0 -> X(!b2r_req0)) 
+      []((b2r_req0 && !r2b_ack0) -> X(b2r_req0)) 
+      []((b2r_req0 && X(!b2r_req0)) -> X( !b2r_req0 U (!b2r_req0 && b2r_req1)))
+      []((!b2r_req0) || (!b2r_req1) )
+      []((s2b_req0 || s2b_req1) -> X(<>(b2r_req0 || b2r_req1)))
+               
+    
+INPUT s2b_req0, s2b_req1, r2b_ack0, r2b_ack1 
+OUTPUT b2s_ack0, b2s_ack1, b2r_req0, b2r_req1

@@ -1,0 +1,7 @@
+## Example 1: Detecting the standing bottles on the conveyor and pushing falling bottles in tray.
+ALWAYS ((x0 && !x1)  -> y0)
+ALWAYS (!(x0 && !x1)  -> !y0)
+
+INPUT x0, x1
+OUTPUT y0
+TIMER 

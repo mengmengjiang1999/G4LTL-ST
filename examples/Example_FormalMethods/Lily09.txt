@@ -1,0 +1,5 @@
+([](<> (req))) -> (([](!(grant) -> (!(grant) U req))) && (((!(grant))) && (([](req -> <> (grant))) && ([](<> (grant))))))
+  
+
+INPUT  req 
+OUTPUT grant

@@ -1,0 +1,22 @@
+## Automatic Door Open Close System
+## Controller can be found with compositional method using unroll 3
+
+ALWAYS ((!x0 && (NEXT x0)) -> NEXT (y0 UNTIL x2))
+ALWAYS (x2 -> !y0)
+ALWAYS ((!x2 && NEXT x2) -> NEXT (t0.start))
+ALWAYS (NEXT (t0.start) -> (!x2 && NEXT x2))
+
+## Based on reasoning over spec, we need to add "|| x0", as it is used to enforce !y1
+## Also, we need to add "|| y0", such that the constraint over y1 is released whenever y0 needs to be TRUE (see two refined example)
+ALWAYS ((!t0.expire && (NEXT t0.expire)) -> NEXT (y1 UNTIL (x1 || x0 || y0)))
+ALWAYS (x0 -> !y1)
+ALWAYS (!(y0 && y1))
+
+ASSUME []<> x0
+ASSUME []<> x1
+ASSUME []<> x2
+
+
+INPUT x0, x1, x2
+OUTPUT y0, y1
+TIMER t0(7s)

@@ -1,0 +1,37 @@
+## Quiz game for 3 groups (each group has its special feature)
+## Can use monolithic or compositional, with unroll 3
+
+ALWAYS((!(x0 || x1) && !y1 && !y2 && NEXT (x0 || x1)) -> NEXT (y0 UNTIL x5))
+ALWAYS((!x2 && !y0 && !y2 && NEXT x2) -> NEXT (y1 UNTIL x5))
+ALWAYS((!(x3 && x4) && !y0 && !y1 && NEXT (x3 && x4)) -> NEXT (y2 UNTIL x5))
+
+## Ensure that lights are not on unless someone pressed
+((!y0 UNTIL (x0 || x1)) || (ALWAYS !(x0 || x1)))
+((!y1 UNTIL x2) || (ALWAYS !x2))
+((!y2 UNTIL (x3 && x4)) || (ALWAYS !(x3 && x4)))
+
+## At most one light can be on
+ALWAYS ((y0 && !y1 && !y2) || (!y0 && y1 && !y2) || (!y0 && !y1 && y2) || (!y0 && !y1 && !y2))
+
+## When reset, all lights should be off until one or another answering event has happened
+ALWAYS (x5 ->  (((!y0 && !y1 && !y2) UNTIL ((x0 || x1) || x2 || (x3 && x4))) || ALWAYS !((x0 || x1) || x2 || (x3 && x4))))
+
+## From the simplified example, we realize that we are not allowed to have controllers to be triggered simultaneously.
+## This implies that we are assuming that when the button is released, it is being set back to FALSE
+ASSUME ALWAYS (x2 -> !x0)
+ASSUME ALWAYS (x2 -> !x1)
+ASSUME ALWAYS (x2 -> !x3)
+ASSUME ALWAYS (x3 -> !x0)
+ASSUME ALWAYS (x3 -> !x1)
+
+## Reset comes once for a while
+ASSUME ALWAYS <> x5
+
+
+## However, the assumption is too strong, as if two things can not happen simultaneously, 
+## then how can two professor push all at once?
+## Therefore, the specification is really problematic. 
+
+INPUT x0, x1, x2, x3, x4, x5
+OUTPUT y0, y1, y2
+TIMER 

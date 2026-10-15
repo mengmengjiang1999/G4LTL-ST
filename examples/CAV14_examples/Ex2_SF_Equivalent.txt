@@ -1,0 +1,15 @@
+## If ((!s_channela && s_channelb) || (s_channela && !s_channelb) ) continues for more than 5sec , set output error (only once) 
+(activate -> (((!s_channela && s_channelb) || (s_channela && !s_channelb) ) -> t43.start ))
+(activate -> (!((!s_channela && s_channelb) || (s_channela && !s_channelb) ) -> !t43.start ))
+ALWAYS (activate -> ((!(((!s_channela && s_channelb) || (s_channela && !s_channelb) ) && NEXT ((!s_channela && s_channelb) || (s_channela && !s_channelb) ))) -> NEXT t43.start) )
+ALWAYS (activate -> ((((!s_channela && s_channelb) || (s_channela && !s_channelb) ) && NEXT ((!s_channela && s_channelb) || (s_channela && !s_channelb) )) -> NEXT !t43.start) )
+ALWAYS (activate -> (t43.expire -> error))
+ALWAYS (activate -> (!t43.expire -> !error))
+ALWAYS (activate -> ((s_channela && s_channelb) -> s_equivalentout))
+ALWAYS (activate -> ((!s_channela || !s_channelb) -> !s_equivalentout))
+ALWAYS (!activate -> (!s_equivalentout && !error))
+ALWAYS ((activate -> ready) && (!activate -> !ready))
+
+INPUT s_channela, s_channelb, activate
+OUTPUT  s_equivalentout, error, ready
+TIMER t43(10ms)

@@ -1,0 +1,5 @@
+## Example for the DC-DC power control. For details, see HSCC'03 paper.
+<>( [] ( ! ((!q0 && !q1 && !q2 )||(q0 && q1 && q2)||(!p0 && !p1 && !p2 && !p3)||(p0 && p1 && !p2 && !p3))))
+
+INPUT m, p0, p1, p2, p3, q0, q1, q2
+OUTPUT o

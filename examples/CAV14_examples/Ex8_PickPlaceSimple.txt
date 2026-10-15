@@ -1,0 +1,13 @@
+## Pick and place machine scenario inspired by MPS.
+## The behavior we have in mind is somehow "sequential" like a repeatedly executed recipe, without error handling. 
+## Within LTL, we can only use invariants to present them; a bit awkward but currently we need to live with that.
+
+ALWAYS (light1 -> (t1.start && (drive UNTIL t1.expire)))
+ALWAYS (t1.expire -> ((startair UNTIL pressure)|| ALWAYS !pressure))
+ALWAYS (pressure -> (((drivearm && startair && tobelt) UNTIL atbelt) || ALWAYS !atbelt))
+ALWAYS ((atbelt && pressure) -> !startair)
+ALWAYS ((atbelt && !pressure) -> ((drivearm && !tobelt) UNTIL !atbelt || ALWAYS atbelt))
+
+INPUT light1, pressure, atbelt
+OUTPUT drive, startair, drivearm, tobelt
+TIMER t1(3s)

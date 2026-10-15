@@ -1,0 +1,24 @@
+## Starting 3 Motors Sequentially with delay i.e. starting the oil pump motor immediately when START is pressed.
+## The main motor will be started after a 10 sec delay and then the auxiliary motor after a 5 sec delay.
+## In addition, stopping all motors immediately when STOP is pressed.
+## In this example, we remove the use of x1 and just view it as !x0
+
+## Use compositional with unroll 4. 
+## In the synthesized controller, the timer might continue counting in background
+
+ALWAYS((!x0 && NEXT x0) -> NEXT (t0.start))
+ALWAYS((!t0.expire && NEXT t0.expire) -> (NEXT t1.start))
+
+ALWAYS((!t0.start && NEXT (t0.start && x0)) -> NEXT (y0 UNTIL !x0))
+ALWAYS((!t1.start && NEXT (t1.start && x0) ) -> NEXT (y1 UNTIL !x0))
+ALWAYS((!t1.expire &&  NEXT (t1.expire && x0)) -> NEXT (y2 UNTIL !x0))
+
+ALWAYS (!x0 -> (!y0 && !y1 && !y2))
+
+ASSUME []<> (!x0)
+
+
+
+INPUT x0
+OUTPUT y0, y1, y2
+TIMER t0(10s), t1(5s)

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<kripkeStructure>
+    <node>
+        <entry>
+            <key>0</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="kripkeNode" id="0" initial="false" name="slow down uphill (-1) [(-1.0)v &lt;= -5.0]">
+                <edge enablingInput="0" destinationID="8"/>
+                <edge enablingInput="1" destinationID="12"/>
+                <edge enablingInput="0" destinationID="11"/>
+                <edge enablingInput="1" destinationID="4"/>
+                <edge enablingInput="0" destinationID="0"/>
+                <edge enablingInput="0" destinationID="3"/>
+                <label>0</label>
+            </value>
+        </entry>
+        <entry>
+            <key>1</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="kripkeNode" id="1" initial="true" name="slow down uphill (-1) [1.0v &lt; 4.0, (-1.0)v &lt;= -3.0]">
+                <edge enablingInput="0" destinationID="9"/>
+                <edge enablingInput="1" destinationID="5"/>
+                <edge enablingInput="0" destinationID="1"/>
+                <edge enablingInput="0" destinationID="2"/>
+                <edge enablingInput="1" destinationID="15"/>
+                <edge enablingInput="1" destinationID="13"/>
+                <edge enablingInput="0" destinationID="10"/>
+                <edge enablingInput="1" destinationID="7"/>
+                <label>1</label>
+            </value>
+        </entry>
+        <entry>
+            <key>2</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="kripkeNode" id="2" initial="false" name="slow down uphill (-1) [1.0v &lt; 3.0]">
+                <edge enablingInput="0" destinationID="10"/>
+                <edge enablingInput="1" destinationID="5"/>
+                <edge enablingInput="1" destinationID="13"/>
+                <edge enablingInput="1" destinationID="6"/>
+                <edge enablingInput="0" destinationID="2"/>
+                <edge enablingInput="1" destinationID="14"/>
+                <label>2</label>
+            </value>
+        </entry>
+        <entry>
+            <key>3</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="kripkeNode" id="3" initial="false" name="slow down uphill (-1) [1.0v &lt; 5.0, (-1.0)v &lt;= -4.0]">
+                <edge enablingInput="1" destinationID="4"/>
+                <edge enablingInput="1" destinationID="7"/>
+                <edge enablingInput="0" destinationID="11"/>
+                <edge enablingInput="1" destinationID="12"/>
+                <edge enablingInput="0" destinationID="9"/>
+                <edge enablingInput="0" destinationID="1"/>
+                <edge enablingInput="1" destinationID="15"/>
+                <edge enablingInput="0" destinationID="3"/>
+                <label>3</label>
+            </value>
+        </entry>
+        <entry>
+            <key>4</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="kripkeNode" id="4" initial="false" name="speed up uphill (+0.5) [(-1.0)v &lt;= -5.0]">
+                <edge enablingInput="0" destinationID="3"/>
+                <edge enablingInput="0" destinationID="0"/>
+                <edge enablingInput="1" destinationID="12"/>
+                <edge enablingInput="0" destinationID="8"/>
+                <edge enablingInput="1" destinationID="4"/>
+                <edge enablingInput="0" destinationID="11"/>
+                <label>0</label>
+            </value>
+        </entry>
+        <entry>
+            <key>5</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="kripkeNode" id="5" initial="false" name="speed up uphill (+0.5) [1.0v &lt; 4.0, (-1.0)v &lt;= -3.0]">
+                <edge enablingInput="1" destinationID="13"/>
+                <edge enablingInput="0" destinationID="10"/>
+                <edge enablingInput="1" destinationID="15"/>
+                <edge enablingInput="1" destinationID="5"/>
+                <edge enablingInput="0" destinationID="2"/>
+                <edge enablingInput="0" destinationID="9"/>
+                <edge enablingInput="0" destinationID="1"/>
+                <edge enablingInput="1" destinationID="7"/>
+                <label>1</label>
+            </value>
+        </entry>
+        <entry>
+            <key>6</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="kripkeNode" id="6" initial="false" name="speed up uphill (+0.5) [1.0v &lt; 3.0]">
+                <edge enablingInput="1" destinationID="14"/>
+                <edge enablingInput="0" destinationID="10"/>
+                <edge enablingInput="1" destinationID="13"/>
+                <edge enablingInput="0" destinationID="2"/>
+                <edge enablingInput="1" destinationID="5"/>
+                <edge enablingInput="1" destinationID="6"/>
+                <label>2</label>
+            </value>
+        </entry>
+        <entry>
+            <key>7</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="kripkeNode" id="7" initial="false" name="speed up uphill (+0.5) [1.0v &lt; 5.0, (-1.0)v &lt;= -4.0]">
+                <edge enablingInput="0" destinationID="3"/>
+                <edge enablingInput="1" destinationID="12"/>
+                <edge enablingInput="1" destinationID="4"/>
+                <edge enablingInput="1" destinationID="15"/>
+                <edge enablingInput="0" destinationID="9"/>
+                <edge enablingInput="0" destinationID="1"/>
+                <edge enablingInput="1" destinationID="7"/>
+                <edge enablingInput="0" destinationID="11"/>
+                <label>3</label>
+            </value>
+        </entry>
+        <entry>
+            <key>8</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="kripkeNode" id="8" initial="false" name="slow down downhill (-0.5) [(-1.0)v &lt;= -5.0]">
+                <edge enablingInput="0" destinationID="0"/>
+                <edge enablingInput="1" destinationID="12"/>
+                <edge enablingInput="0" destinationID="3"/>
+                <edge enablingInput="1" destinationID="4"/>
+                <edge enablingInput="0" destinationID="11"/>
+                <edge enablingInput="0" destinationID="8"/>
+                <label>0</label>
+            </value>
+        </entry>
+        <entry>
+            <key>9</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="kripkeNode" id="9" initial="false" name="slow down downhill (-0.5) [1.0v &lt; 4.0, (-1.0)v &lt;= -3.0]">
+                <edge enablingInput="0" destinationID="10"/>
+                <edge enablingInput="1" destinationID="5"/>
+                <edge enablingInput="0" destinationID="1"/>
+                <edge enablingInput="1" destinationID="15"/>
+                <edge enablingInput="1" destinationID="13"/>
+                <edge enablingInput="1" destinationID="7"/>
+                <edge enablingInput="0" destinationID="9"/>
+                <edge enablingInput="0" destinationID="2"/>
+                <label>1</label>
+            </value>
+        </entry>
+        <entry>
+            <key>10</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="kripkeNode" id="10" initial="false" name="slow down downhill (-0.5) [1.0v &lt; 3.0]">
+                <edge enablingInput="1" destinationID="14"/>
+                <edge enablingInput="0" destinationID="2"/>
+                <edge enablingInput="1" destinationID="6"/>
+                <edge enablingInput="1" destinationID="5"/>
+                <edge enablingInput="1" destinationID="13"/>
+                <edge enablingInput="0" destinationID="10"/>
+                <label>2</label>
+            </value>
+        </entry>
+        <entry>
+            <key>11</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="kripkeNode" id="11" initial="false" name="slow down downhill (-0.5) [1.0v &lt; 5.0, (-1.0)v &lt;= -4.0]">
+                <edge enablingInput="0" destinationID="3"/>
+                <edge enablingInput="0" destinationID="11"/>
+                <edge enablingInput="0" destinationID="1"/>
+                <edge enablingInput="1" destinationID="7"/>
+                <edge enablingInput="1" destinationID="15"/>
+                <edge enablingInput="0" destinationID="9"/>
+                <edge enablingInput="1" destinationID="4"/>
+                <edge enablingInput="1" destinationID="12"/>
+                <label>3</label>
+            </value>
+        </entry>
+        <entry>
+            <key>12</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="kripkeNode" id="12" initial="false" name="speed up downhill (+1) [(-1.0)v &lt;= -5.0]">
+                <edge enablingInput="1" destinationID="12"/>
+                <edge enablingInput="0" destinationID="3"/>
+                <edge enablingInput="1" destinationID="4"/>
+                <edge enablingInput="0" destinationID="8"/>
+                <edge enablingInput="0" destinationID="11"/>
+                <edge enablingInput="0" destinationID="0"/>
+                <label>0</label>
+            </value>
+        </entry>
+        <entry>
+            <key>13</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="kripkeNode" id="13" initial="false" name="speed up downhill (+1) [1.0v &lt; 4.0, (-1.0)v &lt;= -3.0]">
+                <edge enablingInput="1" destinationID="13"/>
+                <edge enablingInput="0" destinationID="2"/>
+                <edge enablingInput="1" destinationID="7"/>
+                <edge enablingInput="1" destinationID="15"/>
+                <edge enablingInput="0" destinationID="9"/>
+                <edge enablingInput="0" destinationID="1"/>
+                <edge enablingInput="1" destinationID="5"/>
+                <edge enablingInput="0" destinationID="10"/>
+                <label>1</label>
+            </value>
+        </entry>
+        <entry>
+            <key>14</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="kripkeNode" id="14" initial="false" name="speed up downhill (+1) [1.0v &lt; 3.0]">
+                <edge enablingInput="1" destinationID="5"/>
+                <edge enablingInput="1" destinationID="6"/>
+                <edge enablingInput="1" destinationID="13"/>
+                <edge enablingInput="0" destinationID="10"/>
+                <edge enablingInput="1" destinationID="14"/>
+                <edge enablingInput="0" destinationID="2"/>
+                <label>2</label>
+            </value>
+        </entry>
+        <entry>
+            <key>15</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="kripkeNode" id="15" initial="false" name="speed up downhill (+1) [1.0v &lt; 5.0, (-1.0)v &lt;= -4.0]">
+                <edge enablingInput="1" destinationID="7"/>
+                <edge enablingInput="0" destinationID="11"/>
+                <edge enablingInput="0" destinationID="3"/>
+                <edge enablingInput="1" destinationID="4"/>
+                <edge enablingInput="0" destinationID="1"/>
+                <edge enablingInput="1" destinationID="15"/>
+                <edge enablingInput="0" destinationID="9"/>
+                <edge enablingInput="1" destinationID="12"/>
+                <label>3</label>
+            </value>
+        </entry>
+    </node>
+    <initialState>1</initialState>
+    <id2pred>
+        <entry>
+            <key>0</key>
+            <value>
+                <le row="1" column="3">
+                    <matrix>
+                        <list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listWrapper">
+                            <list xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">0.0</list>
+                            <list xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">-1.0</list>
+                            <list xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">-5.0</list>
+                        </list>
+                    </matrix>
+                </le>
+            </value>
+        </entry>
+        <entry>
+            <key>1</key>
+            <value>
+                <l row="1" column="3">
+                    <matrix>
+                        <list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listWrapper">
+                            <list xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">0.0</list>
+                            <list xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">1.0</list>
+                            <list xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">4.0</list>
+                        </list>
+                    </matrix>
+                </l>
+                <le row="1" column="3">
+                    <matrix>
+                        <list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listWrapper">
+                            <list xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">0.0</list>
+                            <list xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">-1.0</list>
+                            <list xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">-3.0</list>
+                        </list>
+                    </matrix>
+                </le>
+            </value>
+        </entry>
+        <entry>
+            <key>2</key>
+            <value>
+                <l row="1" column="3">
+                    <matrix>
+                        <list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listWrapper">
+                            <list xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">0.0</list>
+                            <list xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">1.0</list>
+                            <list xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">3.0</list>
+                        </list>
+                    </matrix>
+                </l>
+            </value>
+        </entry>
+        <entry>
+            <key>3</key>
+            <value>
+                <l row="1" column="3">
+                    <matrix>
+                        <list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listWrapper">
+                            <list xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">0.0</list>
+                            <list xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">1.0</list>
+                            <list xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">5.0</list>
+                        </list>
+                    </matrix>
+                </l>
+                <le row="1" column="3">
+                    <matrix>
+                        <list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listWrapper">
+                            <list xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">0.0</list>
+                            <list xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">-1.0</list>
+                            <list xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">-4.0</list>
+                        </list>
+                    </matrix>
+                </le>
+            </value>
+        </entry>
+    </id2pred>
+</kripkeStructure>

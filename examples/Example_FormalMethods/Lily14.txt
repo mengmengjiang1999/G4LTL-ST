@@ -1,0 +1,5 @@
+## Perform with unroll 4.
+([](<>(r0)) -> [](<>(g0))) && ([](<>(r1)) -> [](<>(g1))) && [](!(g0 && g1))
+  
+INPUT r0, r1
+OUTPUT g0, g1

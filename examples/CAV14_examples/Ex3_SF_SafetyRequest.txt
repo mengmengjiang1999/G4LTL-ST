@@ -1,0 +1,30 @@
+## FB_SafetyRequest
+## Specification: when there is a request to enter the save mode, 
+## but the confirmation is not coming in 10 sec, then raise error.
+ALWAYS (activate -> ((s_opmode && !t1.running) -> t1.start))
+ALWAYS (activate -> ((!(s_opmode && !t1.running)) -> ! t1.start))
+ALWAYS (activate -> ((t1.running && t1.expire) -> s_safetyrequest))
+ALWAYS (activate -> ((s_acknowledge -> s_safetyactive) && (!s_acknowledge -> !s_safetyactive)))
+ALWAYS (!activate -> (!s_safetyactive && !s_safetyrequest))
+ALWAYS (activate -> ready)
+
+INPUT activate, s_opmode, s_acknowledge, t1.running
+OUTPUT s_safetyactive, s_safetyrequest, ready
+TIMER t1(10s)
+
+## 
+## Variable s_opmode: Requested mode of a generic safe actuator.
+## FALSE: Safe mode is requested.
+## TRUE: Operation mode is requested.
+##
+## Variable s_acknowledge: Confirmation of the generic actuator, if actuator is in the Safe state.
+## FALSE: Operation mode (non-safe).
+## TRUE: Safe mode.
+## 
+## Variable s_safetyactive: Confirmation of the Safe state.
+## FALSE: Non-safe state.
+## TRUE: Safe state.
+##
+## Variable s_safetyrequest: Request to place the actuator in a safe state
+## FALSE: Safe state is requested.
+## TRUE: Non-safe state.

@@ -1,0 +1,32 @@
+slow down uphill (-1) [(-1.0)v <= -5.0]
+011
+slow down uphill (-1) [1.0v < 4.0, (-1.0)v <= -3.0]
+001
+slow down uphill (-1) [1.0v < 3.0]
+000
+slow down uphill (-1) [1.0v < 5.0, (-1.0)v <= -4.0]
+010
+speed up uphill (+0.5) [(-1.0)v <= -5.0]
+011
+speed up uphill (+0.5) [1.0v < 4.0, (-1.0)v <= -3.0]
+001
+speed up uphill (+0.5) [1.0v < 3.0]
+000
+speed up uphill (+0.5) [1.0v < 5.0, (-1.0)v <= -4.0]
+010
+slow down downhill (-0.5) [(-1.0)v <= -5.0]
+111
+slow down downhill (-0.5) [1.0v < 4.0, (-1.0)v <= -3.0]
+101
+slow down downhill (-0.5) [1.0v < 3.0]
+100
+slow down downhill (-0.5) [1.0v < 5.0, (-1.0)v <= -4.0]
+110
+speed up downhill (+1) [(-1.0)v <= -5.0]
+111
+speed up downhill (+1) [1.0v < 4.0, (-1.0)v <= -3.0]
+101
+speed up downhill (+1) [1.0v < 3.0]
+100
+speed up downhill (+1) [1.0v < 5.0, (-1.0)v <= -4.0]
+110

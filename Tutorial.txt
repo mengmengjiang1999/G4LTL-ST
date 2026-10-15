@@ -1,0 +1,191 @@
+G4LTL-ST: Automated PLC Program Generation from extended logic specifications
+
+
+This tutorial gives a brief overview over G4LTL-ST, a software which automatically synthesizes controllers from extended logic specifications.
+ 
+Part 1 and 2 are basics. 
+Part 3 includes steps how to run complex examples (e.g., use timers) included in CAV'14. 
+Part 4 is about the integration with Ptolemy II (not the part covered in CAV'16) and to double check the result using model checking (SAL).
+
+Contact: Dr. Chih-Hong Cheng [cheng.chihhong(at)gmail.com] 
+
+
+
+========= PART 1: Program execution (Hello World) ==========
+
+G4LTL-ST is written in Java and should be executable directly on all common OS.
+
+1. Unzip the file.
+2. Double click G4LTL_ST.jar to execute the program.
+3. Alternatively, on the command line, type "java -jar G4LTL-ST.jar" to execute the program. 
+4. For performance considerations, it is better to assign larger memory by setting e.g., "java -Xmx1024m -jar G4LTL-ST.jar" in Java.
+   One can also double click execute.bat for the above instruction.
+
+
+5. On the menu bar, select "File -> Load LTL specification". Open "examples/Example_IndustrialAutomation/Example1.txt".
+6. Press the "Synthesize" button. If you want a simple solution, change the unroll step to 1. 
+7. Select "Monolithic" solver, and "No" assumption finding for failed specification.
+8. The synthesized controller in IEC-61131-3 (Structured Text) can be found in the panel "Result of synthesis". 
+
+(Optional) The CODESYS project is also prepared for running interactive simulation. See examples/Example_IndustrialAutomation/README.txt for details.
+
+9. One slightly more interesting example is in "examples/Example_IndustrialAutomation/Example15.txt"; one should select "Compositional" solver. 
+
+========= PART 2: THE SPECIFICATION & IMPLEMENTATION METHODOLOGY ==========
+
+A. Specification and implementation for Mealy Machines (Environment takes the first move)
+
+The tool adapts the specification methodology where the first (valid) output 
+only comes after the first input. For example, "in <-> out" is interpreted as 
+the "the first output shall be the same as the first input". Therefore, 
+G4LTL-ST produces an implementation in Mealy machines. This modeling methodology 
+naturally fits embedded software design (or the view of signals and systems), 
+and it follows the intuition that the i-th output is used to response the i-th input.
+
+By placing every appearance of the output variable "out" by "X out" in the 
+specification, you can apply any model checker (that uses Moore machines) to 
+examine the correctness. Such a specification rewriting when automatically 
+generating SAL modules is done automatically in G4LTL-ST. 
+
+This also means that our synthesized result is different to some synthesis tools 
+that use Moore machine methodology, as in these tools, the specification "in <-> out" 
+is not realizable. However, by specification rewriting (i.e., "out" by "X out"), 
+other tools can also synthesize the same controller in Moore machines. Tools such as
+Acacia+ also supports environment taking the first move (using option "--player 1"), 
+similar to G4LTL-ST. 
+
+
+B. Syntax for input language using Linear Temporal Language: 
+
+0. Use lower-case identifiers to specify input or output variables.
+1. ALWAYS, NEXT, UNTIL, EVENTUALLY are reserved words for temporal operators.
+2. && (AND), -> (IMPLY), ! (NOT), || (OR)
+3. Keyword ASSUME is used to specify the behavior of the input pattern.
+ 
+See https://en.wikipedia.org/wiki/Linear_temporal_logic for a basic description of LTL.
+
+
+C. Timers
+ 
+The specification supports the notion of timers, which is a shortcut to avoid using neXt operators. In the declaration, 
+t(7s) is to specify that the timer is set with 7 second expiration. When t.start (controllable) sets TRUE, the timer 
+count-down starts. When t.expire (uncontrollable) is TRUE, the timer expires. Then in the implementation, the use of 
+timer is automatically translated into PLC code using TON construct. 
+
+
+E.g., t73(10s) is declared as a timer that will count-down for 10 seconds.
+- Use t73.start to trigger the timer (as controllable variable)
+- Use t73.expire to detect if the timer has expired (as uncontrollable variable) 
+
+We refer readers in examples/Example_IndustrialAutomation to get an better idea over the specification, 
+or alternatively, try the tutorial example Part 3.B. (below). 
+
+
+
+D. Options for synthesis engine
+
+1. Compositional: Faster method which synthesizes controllers from sub-specifications, and merge them together. USE THIS WHEN POSSIBLE
+2. Monolithic: Standard synthesis engine suitable for simple examples. For complex speifications the synthesis time can take longer.
+3. Compositional [Y/N]: Only provide Yes (the spec is realizable) or Unknown. Without producing the controller, the speed of synthesis can be faster.
+
+
+
+
+========= PART 3: Advanced Features ==========
+
+Notice: for problems involving timers and variables in reals, they can not be executed with output format for Ptolemy II and SAL.
+
+########## Simple timer example ########## 
+This example shows how to synthesize a simpler time controller. 
+0. Select "Clear" button to clear all texts
+1. Type "in" in Input variable field (omit double quotes)
+2. Type "out" in Output variable field
+3. Select "Add timing specification". One message box will come out.
+4. Type "A=in, B=out, T=10" on the message box (omit double quotes).
+5. Press "Synthesize". 
+6. Select options "Monolithic", "No". The automatically generated PLC code is there. 
+
+
+########## A. CAV example ########## 
+1. On the menu bar, select "File -> Load specification"
+2. Select /examples/CAV14_examples/Ex1_CAV14_Example.txt to open the specification.
+3. [Option A (slow)] On the menu bar, select "Advanced -> Numerical LTL synthesis", and press OK. This generates a monolithic controller. The required time is very slow.
+   [Option B (fast)] On the menu bar, select "Advanced -> Analyze specification grouping". On the result tab, two specifications are generated for independent synthesis.
+		     One can then load two files (Ex1_CAVexample_p1.txt, Ex1_CAVexample_p2.txt) and perform synthesis independently. 
+                     The solver can produce controllers for each of them instaneously.
+
+########## B. Timer example ########## 
+1. On the menu bar, select "File -> Load specification" 
+2. Select examples/Example_IndustrialAutomation/Example6.txt to open the specification. 
+3. Press "Synthesize" button in the panel. The synthesized controller will, when x1 drops from 1 to 0, triggers a timer.  
+ 
+########## C. Simple-simple hybrid system ##########  
+1. On the menu bar, select "File -> Load specification" 
+2. Select /examples/CAV14_examples/Ex7_RelationalAbstraction.txt to open the specification. 
+3. On the menu bar, select "Advanced -> Numerical LTL synthesis", and press OK.
+ 
+########## D. Assumption generation ##########  
+1. On the menu bar, select "File -> Load specification" 
+2. Select /examples/CAV14_examples/Ex12_Assumption_Testcases/01_Teaser.txt to open the specification. 
+3. Press "Synthesize" button in the panel. Select "Monolithic". 
+4. Then a pop-up window asks if one wants to perform assumption finding when the engine fails to produce a controller. Press "Yes, BFS".
+5. The controller together with required assumptions are listed on the Result panel.
+6. One can also try other examples in the folder /Example/Ex12_Assumption_Testcases/
+ 
+########## E. DC-DC example ########## 
+1. On the menu bar, select "File -> Load specification"
+2. Select /examples/CAV14_examples/Ex10_DCDC_env/DC-spec.txt to open the Pseudo-Boolean specification.
+3. On the menu bar, select "Advanced -> Synthesis using environment model".
+4. Select /Example/Ex10_DCDC_env/DCDC/DC-abstraction.xml, which is the result of timed relational abstraction.
+  (The dynamics of the environment model can be found in the same folder, named: Ex10_DCDC_Original.txt, described in LTL)
+5. Select /Example/Ex10_DCDC_env/DCDC/DC-encode.txt, which is the result of encoding in Pseudo-Boolean.
+6. Press execute. The result will be shown on the result tab. Intermediate results are shown on the DOS/linux console.
+7. One can follow similar patterns to load other examples under /Example/Ex11_IP/ or /Example/Ex12_Track/. 
+
+
+
+
+
+
+
+========= PART 4: Verification and Simulation ==========
+
+
+
+Tutorial (part A): 60 seconds for a quick taste on LTL synthesis
+/* To run this tutorial, ensure to have Java installed on the target machine.*/
+
+    [Step 1] Download the tool and unzip it. 
+    [Step 2] On the console, go to the folder where G4LTL-ST is located. Type java -jar G4LTL-ST.jar to open the main  window. Alternatively, you may also double-click on G4LTL.jar 
+    [Step 3] On the menu bar, select "File -> Load LTL specification". Open "examples/Example_FormalMethods/Responder2.txt".
+    [Step 4] Press the "Synthesize" button. If you want a simple solution, change the unroll step to 1. 
+    [Step 5] Select "Monolithic" solver, and "No" assumption finding for failed specification.
+    [Step 6] The synthesized controller can be found in the panel "Result of synthesis".
+
+Tutorial (part B): Verifying the controller using SAL
+/* To run this tutorial, if the target machine operates Windows XP or WIndows 7, please install Cygwin.*/
+
+    [Step 1] Install the symbolic analysis library (SAL) following the instructions from the SAL website.
+    [Step 2] Run the tutorial again, but with output format "SAL format". Save the result of synthesis to G4LTL.sal (by either use copy-paste or "save result").
+    [Step 3] Execute SAL with the following instruction "sal-smc G4LTL.sal theo". SAL should certify the correctness of the synthesized controller using symbolic model checking (see screenshot here). SAL reports that the system satisfies the specification, provided that there is no deadlock.
+    [Step 4] Execute SAL with the following instruction "sal-deadlock-checker G4LTL.sal main" to check if the synthesized module is deadlock free.
+
+NOTICE: In our model of computation, we let environment to take the first move. Therefore, specifications should be adjusted (see Part 2 for details). 
+
+
+Tutorial (part C): Placing the synthesized controller within models of Ptolemy II
+
+    [Step 1] Install Ptolemy II following the instructions from the Ptolemy II website.
+    [Step 2] Rerun tutorial 1, but select the output format to be "FSMActor". Copy and save the content to be model.xml
+    [Step 3] Execute the main program of Ptolemy II (Vergil). Open model.xml, and you can see the automatically implemented FSMActor.
+    [Step 4] To integrate the FSMActor into an existing design, copy the content but omit the first three lines of the synthesized code (these three lines appears in every Ptolemy II model, so we only need one), and paste it in the MoMl file of the design.
+
+    <?xml version="1.0" standalone="no"?>
+    <!DOCTYPE entity PUBLIC "-//UC Berkeley//DTD MoML 1//EN"
+        "http://ptolemy.eecs.berkeley.edu/xml/dtd/MoML_1.dtd">
+
+
+
+-------------
+Contact: Dr. Chih-Hong Cheng [cheng.chihhong(at)gmail.com] 
+2016.08.05

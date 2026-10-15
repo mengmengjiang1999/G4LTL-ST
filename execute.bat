@@ -1,0 +1,1 @@
+java -Xmx1024m -XX:ThreadStackSize=512 -jar G4LTL_ST.jar

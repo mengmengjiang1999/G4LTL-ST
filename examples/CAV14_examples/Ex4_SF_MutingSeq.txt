@@ -1,0 +1,43 @@
+## Sequential muting
+## 1. If muting sensor mutingswitch12 (MS_12) is activated by the product after mutingswitch11 (MS_11), the muting mode is activated.
+## 2. Muting mode remains active as long as mutingswitch11 (MS_11) and mutingswitch12 (MS_12) are activated by the product. 
+##    The product may pass through the light curtain without causing a machine stop.
+## 3. Before muting sensors mutingswitch11 (MS_11) and mutingswitch12 (MS_12) are disabled, muting sensors mutingswitch21 
+##    (MS_21) and mutingswitch22 (MS_22) must be activated. This ensures that muting mode remains active.
+## 4. Muting mode is terminated if only muting sensor mutingswitch22 (MS_22) is activated by the product.
+## 5. error scenaro:
+##    A. The muting function (s_mutingactive = TRUE) exceeds the maximum muting time MaxMutingTime.
+##    B. Muting sensors mutingswitch11, mutingswitch12, mutingswitch21, and mutingswitch22 are activated in the wrong order.
+##    C. In the event of an error, the s_aopd_out and s_mutingactive outputs are set to FALSE.
+##
+## AOPD: Active opto-electronic protective device
+##
+## The following spec is based on the use of timer abstraction. 
+##
+## Spec 1 (here we need to add error to avoid un-synthesizable scenarios)
+ALWAYS (mutingswitch11 -> NEXT EVENTUALLY (mutingswitch12 -> (error || s_mutingactive)))
+## Spec 2
+ALWAYS ((mutingswitch11 && mutingswitch12) -> s_mutingactive)
+## Spec 3 (assumption; omitted)
+## Spec 4
+ALWAYS ((mutingswitch22 && !mutingswitch11 && !mutingswitch12 && !mutingswitch21 && t1.running && !t1.expire) -> !s_mutingactive)
+## Spec 5.A
+ALWAYS (s_mutingactive -> t1.start) 
+ALWAYS (t1.expire -> error) 
+ALWAYS ((t1.running && !t1.expire) -> !error)
+## Spec 5.B
+ALWAYS ((!t1.running && mutingswitch12) -> NEXT EVENTUALLY ((!t1.running && mutingswitch11) -> error))
+ALWAYS ((!t1.running && mutingswitch21) -> NEXT EVENTUALLY ((!t1.running && mutingswitch12) -> error))
+ALWAYS ((t1.running && mutingswitch22) -> NEXT EVENTUALLY ((t1.running && mutingswitch21) -> error))
+## Spec 5.C
+## ALWAYS (error -> (!s_aopd_out && !s_mutingactive))
+
+## The above specification is not realizable, when 5.C is added. 
+## The solution is to ensure that Spec 2 is refined such that one does not create 
+## conflicts which wish to produce s_mutingactive and !s_mutingactive at the same time.
+ASSUME ALWAYS ((mutingswitch11 && mutingswitch12) -> t1.running)
+
+
+INPUT mutingswitch11, mutingswitch12, mutingswitch21, mutingswitch22, t1.running
+OUTPUT s_aopd_out, s_mutingactive, error
+TIMER t1(10s)

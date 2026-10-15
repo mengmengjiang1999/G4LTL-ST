@@ -1,0 +1,20 @@
+## Controlling the running state of the 1 phase motor by pressing START and STOP pushbuttons
+## motor should remain in ON state after START pushbutton is pressed and should OFF when STOP pushbutton is pressed.
+## Checking if the Motor is running normally by pressing TEST pushbutton
+
+ALWAYS((x0 && !x3 && x2) -> (y0 UNTIL (x1 || x3 || !x2)))
+ALWAYS((x1 || x3 || !x2) ->  ((!y0 UNTIL (x0 && !x3 && x2)) || ALWAYS !(x0 && !x3 && x2)))
+
+## When we have (x0 && x1 && !x3 && x2),
+## The synthesized controller will omit x1 when x0 and x1 are simultaneously on, 
+## as in the UNTIL part, it immediately touches UNTIL (x0 && !x3 && x2), therefore no need to output !y0
+
+## The below assumptions are automatically synthesized
+
+ASSUME []<> x1
+ASSUME []<> x3
+
+
+INPUT x0, x1, x2, x3
+OUTPUT y0
+TIMER 

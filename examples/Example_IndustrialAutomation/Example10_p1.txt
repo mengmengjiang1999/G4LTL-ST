@@ -1,0 +1,27 @@
+## Automatically infusing the container with liquids A and B in order when START is pressed. When it
+## reaches the set level, mix the two liquids evenly then open the valve to let out the mixture.
+
+## Modified specification by considering that x10 is emergency stop.
+## Notice that the disjunction is not really specified in the specification.
+## Also, we need to consider when x0 is suddenly changed to FALSE, 
+## which is never considered in the specification (without considering it, the spec turns unrealizable)
+
+## This subpart is tested with ordering x0, x1, x2, then use x10 to allow disabling three signals
+
+!y0
+ALWAYS ((!x0 && NEXT !x0) -> NEXT !y0)
+ALWAYS ((!x0 && NEXT x0) -> NEXT (y0 UNTIL (x1 || x10 || !x0 )))
+ALWAYS (x1 -> !y0)
+ALWAYS (x1 -> (y1 UNTIL (x2 || x10)))
+ALWAYS (x2 -> !y1)
+## When emergency button is pressed, stop all processes
+ALWAYS(x10 -> (!y0 && !y1))
+
+## G4LTL-ST automatically suggests the following assumption
+ASSUME [] ( <> (x10))
+
+
+
+INPUT x0, x1, x2, x10
+OUTPUT y0, y1
+TIMER 

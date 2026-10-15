@@ -1,0 +1,67 @@
+## =====REALIZABLE=====
+## Control over a Sewage Treatment (Kläranlage) with two tanks - Variation 2
+## Example taken from Ex7.1.9 in book IEC 61131-3 mit CoDeSys V3 by Jochen Petry
+
+## For sensors, when value is 0, it means that no water is sensed
+## For actuators, when value is 0, it means to close the valve
+## Compositional synthesis with unroll 4 works (one needs to assign more memory to avoid out-of-memory error in Java) 
+## However, the synthesized code is around 500K LoC (too big for such a simple implementation)
+
+## This is the version with the fix of specification, and with Booleanization of all timers.
+
+## NOTICE: 
+## 1. THIS IS BOOLEANIZED, THEREFORE TIMER IS NOT USED
+## 2. HERE THE WEAK_UNTIL (a W b) IS EXTENDED WITH ANOTHER DISJUNCTION OVER ENVIRONMENT VAR (![] !b), BUT IT DOES NOT INFLUENCE REALIZABILITY 
+
+
+
+## 1
+[] (b1 -> !y1)
+## 2
+[] ((!b2 && !y2) -> ((y1 U b1) || ([] !b1 -> [] y1)) )
+## 3, 5
+[] ((b1 && !b5) -> ((y3 U !b2) ||  ([] !(!b2) -> [] y3)) )
+
+
+## 4
+## [] ((b3 && X !b3) -> X ((y2 U (!t1expire && X t1expire)) ||  ([] !(!t1expire && X t1expire) -> [] X y2)) )
+## Merged one
+##[] (((b3 && X !b3) || (b2 && X !b2)) -> X ((y2 U (!t1expire && X t1expire)) ||  ([] !(!t1expire && X t1expire) -> [] X y2)) )
+## Currently, use the version without X, as although the above formula should also return synthesizable, 
+## our synthesis engine currently can't handle this case by a case split reasoning.
+[] ((!b2 || !b3) -> ((y2 U (!t1expire && X t1expire)) ||  ([] !(!t1expire && X t1expire) -> [] X y2)) )
+## 5
+[] (!b2 -> !y3)
+## 5
+[] ((b2 && X !b2) <-> X (t1start))
+## Merged to 4
+## [] ((b2 && X !b2) -> X ((y2 U (!t1expire && X t1expire)) ||  ([] !(!t1expire && X t1expire) -> [] X y2)) )
+
+## Hidden for 5 (y2 should remain off)
+[] ((!t1expire && X t1expire)  -> X ((!y2 U (!b2 || !b3)) || ([] !(!b2 || !b3) -> [] !y2))  )
+
+
+## 6
+[] ((!b4 && X b4) <-> X (t2start))
+## For the Ptolemy code generation, we need to write output conjunction into two files. 
+## [] ((!b4 && X b4) -> X (((y4 && k1) U t2expire) ||  ([] !(t2expire) -> [] (y4 && k1))))
+[] ((!b4 && X b4) -> X ((y4 U t2expire) ||  ([] !(t2expire) -> [] y4)))
+[] ((!b4 && X b4) -> X ((k1 U t2expire) ||  ([] !(t2expire) -> [] k1)))
+
+
+## Hidden for 6 (y4 should remain off)
+[] ((!t2expire && X t2expire) -> X ((!y4 U b4) || ([] !(b4) -> [] !y4))  )
+
+## 7
+[] ((!b4 && X b4) <-> X (t3start))
+[] ((!t3expire && X t3expire) -> X ((y5 U (!b5 || y3) ) || ([] !(!b5 || y3) -> [] y5) ))
+[] (!b5 -> !y5)
+
+## Additional conditions 
+[] (y3 -> !y1)
+[] ((y1 || y5) -> !y3)
+[] (y3 -> !y5)
+
+INPUT b1, b2, b3, b4, b5, t1expire, t2expire, t3expire
+OUTPUT y1, y2, y3, y4, y5, k1, t1start, t2start, t3start
+## TIMER t1(5s), t2(10s), t3(3s)

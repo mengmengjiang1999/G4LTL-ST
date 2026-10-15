@@ -1,0 +1,11 @@
+## S1. If the WaitForFlush signal is ever asserted, the router shall
+## stop routing packets to connected devices until the FlushAll signal is triggered.
+([] ((assert_wait_for_flush) -> ((stop_routing_packets_router_connected_devices) U (trigger_flushall))))
+## S2. If the FlushAll signal is not triggered, buffers shall not be flushed.
+[] ((!trigger_flushall) -> (! flush_buffers))
+## S3. If the router stops routing packets to connected devices, all buffers shall be
+## eventually flushed.
+[] ((stop_routing_packets_router_connected_devices) -> <> (flush_buffers))
+
+INPUT assert_wait_for_flush, trigger_flushall
+OUTPUT flush_buffers, stop_routing_packets_router_connected_devices

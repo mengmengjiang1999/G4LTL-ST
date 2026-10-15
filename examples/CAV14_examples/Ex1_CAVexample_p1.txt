@@ -1,0 +1,8 @@
+## Simple error signaling scheme
+ALWAYS (error -> t1.start)
+ALWAYS (error -> (light && NEXT (light UNTIL t1.expire)))
+ALWAYS (ALWAYS !error -> (EVENTUALLY ALWAYS (!light && !t1.start)))
+
+INPUT  error
+OUTPUT light
+TIMER t1(10s)

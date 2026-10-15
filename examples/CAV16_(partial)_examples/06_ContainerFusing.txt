@@ -1,0 +1,46 @@
+## =====REALIZABLE=====
+## Container fusing
+## Example taken from PLC Ladder Programming Example 10 from plc-scada-dcs.blogspot.com
+
+## Automatically infusing the container with liquids A and B in order when START is pressed. When it
+## reaches the set level, mix the two liquids evenly then open the valve to let out the mixture.
+
+## Compositional synthesis of unroll 4 is enough
+
+## Modified specification by considering that x10 is emergency stop, where one needs to add  "|| x10" to the U condition.
+## Notice that the disjunction is not really specified in the specification.
+
+## NOTICE: 
+## 1. THIS IS BOOLEANIZED, THEREFORE TIMER IS NOT USED
+## 2. HERE THE WEAK_UNTIL (a W b) IS EXTENDED WITH ANOTHER DISJUNCTION OVER ENVIRONMENT VAR (![] !b), BUT IT DOES NOT INFLUENCE REALIZABILITY 
+
+## When emergency button is pressed, stop all processes
+## For the Ptolemy code generation, we need to write output conjunction into two files. 
+## [](x10 -> (!y0 && !y1 && !y2 && !y3))
+[](x10 -> (!y0))
+[](x10 -> (!y1))
+[](x10 -> (!y2))
+[](x10 -> (!y3))
+
+[] (x0 -> ((y0 U (x1 || x10)) || ([] !(x1 || x10) -> [] y0)))
+[] (x1 -> !y0)
+[] (x1 -> ((y1 U (x2 || x10)) || ([] !(x2 || x10) -> [] y1)))
+[] (x2 -> !y1)
+
+## Rising edge of x2 (!x2 && X x2), start the stirring functionality for 60 seconds
+[] ((!x2 && X x2) <-> X (t0start))
+[] ((!x2 && X x2) -> X ((y2 U ( t0expire || x10) ) || ([] !( t0expire || x10) -> [] y2 )))
+
+
+## When 60 seconds expire (!t0expire && X t0expire), start opening the valve for 120 seconds to flow all water out
+[] ((!t0expire && X t0expire) <-> X (t1start))
+[] ((!t0expire && X t0expire) -> X ((y3 U ( t1expire || x10) ) || ([] !( t1expire || x10) -> [] y3) ))
+
+
+## G4LTL-ST automatically suggests the following assumption (based on synthesizing part 1)
+## ASSUME [] ( <> (x10))
+
+
+INPUT x0, x1, x2, x3, x10, t0expire, t1expire
+OUTPUT y0, y1, y2, y3, t0start, t1start
+## TIMER t0(60s), t1(120s)
